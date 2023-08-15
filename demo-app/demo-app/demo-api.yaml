@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: mysqlpod
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysqlpod
+        tier: backend
+    spec:
+      containers:
+        - name: demo-api
+          image: bhargavrao19/demo-backend19
+          ports:
+            - name: api
+              containerPort: 8080

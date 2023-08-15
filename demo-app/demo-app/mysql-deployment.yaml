@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqlpod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysqlpod
+  template:
+    metadata:
+      labels:
+        app: mysqlpod
+    spec:
+      containers:
+        - image: mysql
+          name: mysqlpod
+          env:
+            # - name: MYSQL_USER
+            #   value: "root"
+            - name: MYSQL_ROOT_PASSWORD
+              value: "password123"
+            # - name: MYSQL_ROOT_HOST
+            #   value: "%"
+            # - name: MYSQL_DATABASE
+            #   value: "students"
+          volumeMounts:
+            - mountPath: /home
+              name: mysql-volume
+      volumes:
+        - name: mysql-volume
+          persistentVolumeClaim:
+            claimName: mysql-pvc

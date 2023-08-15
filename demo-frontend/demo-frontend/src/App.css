@@ -1,0 +1,21 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 80vh;
+}
+
+button {
+  background-color:cornflowerblue;
+  border: 0;
+  border-radius: 5%;
+  width: 5rem;
+  height: 2.3rem;
+}
+
+input {
+  width: 10rem;
+  height: 2rem;
+  border: 0.5px solid cornflowerblue;
+}
